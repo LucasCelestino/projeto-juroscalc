@@ -4,10 +4,27 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
+import { RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { JurosComponent } from './juros/juros.component';
+import { JurosCompostoComponent } from './juros-composto/juros-composto.component';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, HelloComponent ],
-  bootstrap:    [ AppComponent ]
+  imports: [
+    BrowserModule,
+    FormsModule,
+    RouterModule.forRoot([
+      { path: '', component: HomeComponent },
+      { path: 'juros', component: JurosComponent },
+      { path: 'juros-composto', component: JurosCompostoComponent },
+    ]),
+  ],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    JurosComponent,
+    JurosCompostoComponent,
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

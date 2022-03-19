@@ -6,19 +6,30 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './juros-composto.component.html',
   styleUrls: ['./juros-composto.component.css'],
 })
-export class JurosCompostoComponent {
-  numero: number;
+export class JurosCompostoComponent implements OnInit {
+  vp: number;
+  j: number;
+  n: number;
   jurosArray: any[] = [];
 
-  buildJurosCompostos() {
-    this.numero = 10;
+  constructor() {
+    // o valor s
+    this.vp = 200;
+    this.j = 2.5;
+    this.n = 5;
+    // chamando a funcao para da build nos objetos
+    this.buildJurosCompostos(this.vp, this.j);
+  }
 
-    for (let i = 1; i <= 10; i++) {
-      this.jurosArray.push(i);
+  buildJurosCompostos(vlPresente: Number, txJuros: Number) {
+    // usando valor do N vindo do input para construir objetos JSON
+    for (let i = 1; i <= this.n; i++) {
+      this.jurosArray.push({
+        n: i,
+        composto: (this.vp * Math.pow(1 + this.j / 100, i)).toFixed(2),
+      });
     }
   }
 
-  constructor() {
-    this.buildJurosCompostos();
-  }
+  ngOnInit() {}
 }

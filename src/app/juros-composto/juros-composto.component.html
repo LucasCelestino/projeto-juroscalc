@@ -1,18 +1,19 @@
 <h2>Juros Compostos</h2>
 <div>Valor presente (em R$):</div>
-<input type="number" step="0.01" />
+<input type="number" step="0.01" [(ngModel)]="vp" />
 <div>Juros (em %):</div>
-<input type="number" step="0.01" />
+<input type="number" step="0.01" [(ngModel)]="j" />
 <div>Periodo (em meses):</div>
-<input type="number" step="1" />
+<input type="number" step="1" [(ngModel)]="n" />
 <br /><br /><br />
 <table border="1">
   <tr>
     <th>N</th>
     <th>Juros Compostos</th>
   </tr>
-  <tr *ngFor="let n of jurosArray">
-    <td>{{ n }}</td>
-    <td>2932</td>
+  <!-- exibindo os dados dos objetos que foram atribuidos ao array jurosArray -->
+  <tr *ngFor="let juros of jurosArray">
+    <td>{{ juros.n }}</td>
+    <td>R$ {{ juros.composto }}</td>
   </tr>
 </table>

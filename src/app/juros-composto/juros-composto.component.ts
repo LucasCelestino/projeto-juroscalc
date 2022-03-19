@@ -13,7 +13,8 @@ export class JurosCompostoComponent implements OnInit {
   jurosArray: any[] = [];
 
   constructor() {
-    // o valor s
+    // os valores dos inputs não estão refletindo na tabela, mesmo com ngModel...?
+    // mudando diretamente por aqui eles estão refletindo na tabela
     this.vp = 200;
     this.j = 2.5;
     this.n = 5;
@@ -22,7 +23,7 @@ export class JurosCompostoComponent implements OnInit {
   }
 
   buildJurosCompostos(vlPresente: Number, txJuros: Number) {
-    // usando valor do N vindo do input para construir objetos JSON
+    // usando valor do N vindo do input para construir objetos JSON e calcular os juros
     for (let i = 1; i <= this.n; i++) {
       this.jurosArray.push({
         n: i,

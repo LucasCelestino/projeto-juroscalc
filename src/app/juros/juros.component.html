@@ -1,9 +1,9 @@
 <h2>Juros</h2>
 <div>Valor presente (em R$):</div>
-<input type="number" step="0.01" [(ngModel)]="teste" />
+<input type="number" step="0.01" [(ngModel)]="vp" />
 <div>Juros (em %):</div>
-<input type="number" step="0.01" />
+<input type="number" step="0.01" [(ngModel)]="j" />
 <div>Periodo (em meses):</div>
-<input type="number" step="1" />
+<input type="number" step="1" [(ngModel)]="n" />
 <h3>Valor Futuro</h3>
-<h4>{{ teste }}</h4>
+<h4>R$ {{ vp * (1 + (j / 100) * n) }}</h4>
